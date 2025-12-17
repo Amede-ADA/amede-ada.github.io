@@ -123,12 +123,6 @@ nav a:hover::before {
     animation: slideIn 0.3s ease;
 }
 
-nav.hidden {
-    opacity: 0;
-    pointer-events: none;   /* plus cliquable */
-    transform: translateY(-20px); /* petit effet */
-}
-
 @keyframes slideIn {
     from {
         opacity: 0;
