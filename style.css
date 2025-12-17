@@ -331,11 +331,12 @@ h2 {
 }
 
 
-/* CSS */
+/* Section Langues */
+/* CSS pour liste de langues toujours en colonne */
 .languages-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-direction: column; /* une langue par ligne */
+    gap: 12px;
     margin-top: 15px;
 }
 
