@@ -113,23 +113,15 @@ function toggleMobileMenu() {
 
 
 // Effet de transparence progressive au scroll
-let lastScrollTop = 0;
 const nav = document.querySelector('nav');
 
 window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // Calcul de l'opacité basé sur la position de scroll
-    // La nav devient transparente après 200px de scroll
-    const scrollThreshold = 100;
-    let opacity = 1;
-    
-    if (scrollTop > scrollThreshold) {
-        // Réduction progressive de l'opacité
-        const fadeRange = 500; // Sur combien de pixels l'effet se produit
-        opacity = Math.max(0.1, 1 - ((scrollTop - scrollThreshold) / fadeRange));
+    const scrollTop = window.scrollY;
+    const hideThreshold = 300; // px
+
+    if (scrollTop > hideThreshold) {
+        nav.classList.add('hidden');
+    } else {
+        nav.classList.remove('hidden');
     }
-    
-    nav.style.opacity = opacity;
-    lastScrollTop = scrollTop;
 });
