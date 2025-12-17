@@ -188,30 +188,11 @@ h2 {
     object-fit: cover;
 }
 
-@media (max-width: 768px) {
-    .profile-img {
-        width: 140px;
-        height: 140px;
-        margin: 0 auto;
-    }
-
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-}
 
 
 .about-text p {
     margin-bottom: 1rem;
     text-align: justify;
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;  /* responsive */
 }
 
 /* Section Projets */
