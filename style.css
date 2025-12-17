@@ -188,6 +188,48 @@ h2 {
     object-fit: cover;
 }
 
+.image-frame {
+    width: 250px;               /* largeur fixe ou adaptable */
+    height: 250px;              /* hauteur fixe pour uniformité */
+    overflow: hidden;           /* cache les débordements */
+    border-radius: 15px;        /* coins arrondis */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* ombre douce */
+    margin: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* animation au survol */
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* recadrage intelligent pour garder l'aspect */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol */
+.image-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.image-frame:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsive : s'adapte sur petits écrans */
+@media screen and (max-width: 768px) {
+    .image-frame {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .image-frame {
+        width: 150px;
+        height: 150px;
+    }
+}
 
 
 .about-text p {
