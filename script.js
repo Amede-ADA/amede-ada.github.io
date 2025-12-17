@@ -121,12 +121,12 @@ window.addEventListener('scroll', () => {
     
     // Calcul de l'opacité basé sur la position de scroll
     // La nav devient transparente après 200px de scroll
-    const scrollThreshold = 200;
+    const scrollThreshold = 100;
     let opacity = 1;
     
     if (scrollTop > scrollThreshold) {
         // Réduction progressive de l'opacité
-        const fadeRange = 300; // Sur combien de pixels l'effet se produit
+        const fadeRange = 500; // Sur combien de pixels l'effet se produit
         opacity = Math.max(0.1, 1 - ((scrollTop - scrollThreshold) / fadeRange));
     }
     
