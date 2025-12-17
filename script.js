@@ -4,21 +4,18 @@ const projects = [
         title: "Projet 1 : Nom du Projet",
         description: "Description du projet et du problème résolu. Expliquez l'objectif principal et l'impact du projet.",
         technologies: ["Python", "React", "PostgreSQL"],
-        github: "#",
         demo: "#"
     },
     {
         title: "Projet 2 : Nom du Projet",
         description: "Description du projet. Mettez en avant votre rôle et les défis techniques que vous avez surmontés.",
         technologies: ["Java", "Spring Boot", "Docker"],
-        github: "#",
         demo: "#"
     },
     {
         title: "Projet 3 : Nom du Projet",
         description: "Description du projet. Incluez des métriques si possible (amélioration des performances, utilisateurs touchés, etc.).",
         technologies: ["Node.js", "MongoDB", "AWS"],
-        github: "#",
         demo: "#"
     }
 ];
@@ -39,7 +36,6 @@ function createProjectCard(project) {
             ${techTags}
         </div>
         <div class="project-links">
-            <a href="${project.github}" target="_blank">GitHub</a>
             <a href="${project.demo}" target="_blank">Démo</a>
         </div>
     `;
@@ -92,12 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Fonction pour ajouter un nouveau projet (pour faciliter l'ajout futur)
-function addProject(title, description, technologies, github, demo) {
+function addProject(title, description, technologies, demo) {
     projects.push({
         title,
         description,
         technologies,
-        github,
         demo
     });
     
