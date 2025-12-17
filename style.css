@@ -29,14 +29,15 @@ header p {
     opacity: 0.9;
 }
 
-/* Navigation - Nouveau design */
+/* Navigation - Nouveau design avec transparence au scroll */
 nav {
     background: #1a202c;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: opacity 0.3s ease;
 }
 
 nav ul {
@@ -58,8 +59,8 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem;
-    padding: 1.2rem 2rem;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
     position: relative;
     transition: all 0.4s ease;
     border-left: 4px solid transparent;
@@ -343,12 +344,12 @@ footer {
     }
 
     nav {
-        padding: 1rem;
+        padding: 0.8rem 1rem;
     }
 
     nav a {
-        font-size: 1rem;
-        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+        padding: 0.7rem 1.5rem;
     }
 
     .projects-grid {
