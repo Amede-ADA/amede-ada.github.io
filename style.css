@@ -188,20 +188,28 @@ h2 {
     object-fit: cover;
 }
 
+/* CSS pour images circulaires */
 .image-frame {
-    width: 250px;               /* largeur fixe ou adaptable */
-    height: 250px;              /* hauteur fixe pour uniformité */
-    overflow: hidden;           /* cache les débordements */
-    border-radius: 15px;        /* coins arrondis */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* ombre douce */
-    margin: 15px;
+    width: 200px;                 /* diamètre du cercle */
+    height: 200px;                /* même valeur que width pour garder la forme ronde */
+    border-radius: 50%;           /* cercle parfait */
+    overflow: hidden;
+
+    flex-shrink: 0;
+    border: 3px solid #ddd;       /* contour léger */
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* animation au survol */
 }
 
 .image-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover;          /* recadrage intelligent pour garder l'aspect */
+    object-fit: cover;           /* image recadrée pour remplir le cercle */
     display: block;
     transition: transform 0.3s ease;
 }
@@ -209,27 +217,21 @@ h2 {
 /* Effet au survol */
 .image-frame:hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 }
 
 .image-frame:hover img {
     transform: scale(1.1);
 }
 
-/* Responsive : s'adapte sur petits écrans */
+/* Responsive */
 @media screen and (max-width: 768px) {
-    .image-frame {
-        width: 200px;
-        height: 200px;
-    }
-}
-
-@media screen and (max-width: 480px) {
     .image-frame {
         width: 150px;
         height: 150px;
     }
 }
+
 
 
 .about-text p {
