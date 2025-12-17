@@ -1,142 +1,151 @@
-// Données des projets
+/* ===========================
+   DONNÉES DES PROJETS
+=========================== */
 const projects = [
     {
         title: "Projet 1 : Nom du Projet",
-        description: "Description du projet et du problème résolu. Expliquez l'objectif principal et l'impact du projet.",
+        description: "Description du projet et du problème résolu.",
         technologies: ["Python", "React", "PostgreSQL"],
         demo: "#"
     },
     {
         title: "Projet 2 : Nom du Projet",
-        description: "Description du projet. Mettez en avant votre rôle et les défis techniques que vous avez surmontés.",
+        description: "Description du projet. Défis techniques et rôle.",
         technologies: ["Java", "Spring Boot", "Docker"],
         demo: "#"
     },
     {
         title: "Projet 3 : Nom du Projet",
-        description: "Description du projet. Incluez des métriques si possible (amélioration des performances, utilisateurs touchés, etc.).",
+        description: "Description du projet avec métriques si possible.",
         technologies: ["Node.js", "MongoDB", "AWS"],
         demo: "#"
     }
 ];
 
-// Fonction pour créer une carte de projet
+
+/* ===========================
+   CRÉATION DES CARTES PROJETS
+=========================== */
 function createProjectCard(project) {
-    const card = document.createElement('div');
-    card.className = 'project-card fade-in';
-    
+    const card = document.createElement('article');
+    card.className = 'project-card reveal';
+
     const techTags = project.technologies
         .map(tech => `<span class="tech-tag">${tech}</span>`)
         .join('');
-    
+
     card.innerHTML = `
         <h3>${project.title}</h3>
         <p>${project.description}</p>
-        <div class="tech-tags">
-            ${techTags}
-        </div>
+        <div class="tech-tags">${techTags}</div>
         <div class="project-links">
-            <a href="${project.demo}" target="_blank">Démo</a>
+            <a href="${project.demo}" target="_blank" rel="noopener">Démo</a>
         </div>
     `;
-    
+
     return card;
 }
 
-// Charger les projets au chargement de la page
+
+/* ===========================
+   INITIALISATION AU CHARGEMENT
+=========================== */
 document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('projectsContainer');
-    
-    projects.forEach(project => {
-        const card = createProjectCard(project);
-        container.appendChild(card);
-    });
-    
-    // Navigation fluide
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+
+    /* ---- Chargement des projets ---- */
+    const projectsContainer = document.getElementById('projectsContainer');
+    if (projectsContainer) {
+        projects.forEach(project => {
+            projectsContainer.appendChild(createProjectCard(project));
+        });
+    }
+
+    /* ---- Navigation fluide ---- */
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', e => {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
-    
-    // Animation au scroll
+
+    /* ---- Animation au scroll (sections + contenus internes) ---- */
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -60px 0px'
     };
-    
-    const observer = new IntersectionObserver((entries) => {
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                entry.target.classList.add('reveal-visible');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
-    
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
+
+    /* éléments animés */
+    document.querySelectorAll(`
+        section,
+        .project-card,
+        .cert-item,
+        .assoc-item,
+        .pub-item,
+        .languages-list li,
+        .skill-category
+    `).forEach(el => revealObserver.observe(el));
 });
 
-// Fonction pour ajouter un nouveau projet (pour faciliter l'ajout futur)
+
+/* ===========================
+   AJOUT DYNAMIQUE DE PROJET
+=========================== */
 function addProject(title, description, technologies, demo) {
-    projects.push({
-        title,
-        description,
-        technologies,
-        demo
-    });
-    
-    // Recharger l'affichage
+    const newProject = { title, description, technologies, demo };
+    projects.push(newProject);
+
     const container = document.getElementById('projectsContainer');
-    container.innerHTML = '';
-    projects.forEach(project => {
-        const card = createProjectCard(project);
-        container.appendChild(card);
-    });
+    if (!container) return;
+
+    container.appendChild(createProjectCard(newProject));
 }
 
-// Gestion du menu mobile (optionnel)
+
+/* ===========================
+   MENU MOBILE (OPTIONNEL)
+=========================== */
 function toggleMobileMenu() {
-    const nav = document.querySelector('nav ul');
-    nav.classList.toggle('mobile-open');
+    document.querySelector('nav ul')?.classList.toggle('mobile-open');
 }
 
 
-// Effet de transparence progressive au scroll
+/* ===========================
+   NAV TRANSPARENT AU SCROLL
+=========================== */
 const nav = document.querySelector('nav');
 
 window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
+    const scrollY = window.scrollY;
 
-    const fadeStart = 100;  // début du fade
-    const fadeEnd   = 500;  // complètement invisible
+    const fadeStart = 100;
+    const fadeEnd = 450;
 
     let opacity = 1;
 
-    if (scrollTop <= fadeStart) {
+    if (scrollY <= fadeStart) {
         opacity = 1;
         nav.style.pointerEvents = 'auto';
     } 
-    else if (scrollTop >= fadeEnd) {
+    else if (scrollY >= fadeEnd) {
         opacity = 0;
         nav.style.pointerEvents = 'none';
     } 
     else {
-        // interpolation linéaire
-        opacity = 1 - (scrollTop - fadeStart) / (fadeEnd - fadeStart);
+        opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
         nav.style.pointerEvents = 'none';
     }
 
     nav.style.opacity = opacity;
 });
-
