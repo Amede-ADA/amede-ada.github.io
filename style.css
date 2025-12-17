@@ -37,7 +37,7 @@ nav {
     top: 0;
     z-index: 100;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 nav ul {
@@ -121,6 +121,12 @@ nav a:hover::before {
     color: #667eea;
     font-size: 1.2rem;
     animation: slideIn 0.3s ease;
+}
+
+nav.hidden {
+    opacity: 0;
+    pointer-events: none;   /* plus cliquable */
+    transform: translateY(-20px); /* petit effet */
 }
 
 @keyframes slideIn {
