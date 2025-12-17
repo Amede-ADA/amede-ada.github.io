@@ -117,11 +117,26 @@ const nav = document.querySelector('nav');
 
 window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
-    const hideThreshold = 300; // px
 
-    if (scrollTop > hideThreshold) {
-        nav.classList.add('hidden');
-    } else {
-        nav.classList.remove('hidden');
+    const fadeStart = 100;  // début du fade
+    const fadeEnd   = 500;  // complètement invisible
+
+    let opacity = 1;
+
+    if (scrollTop <= fadeStart) {
+        opacity = 1;
+        nav.style.pointerEvents = 'auto';
+    } 
+    else if (scrollTop >= fadeEnd) {
+        opacity = 0;
+        nav.style.pointerEvents = 'none';
+    } 
+    else {
+        // interpolation linéaire
+        opacity = 1 - (scrollTop - fadeStart) / (fadeEnd - fadeStart);
+        nav.style.pointerEvents = 'none';
     }
+
+    nav.style.opacity = opacity;
 });
+
