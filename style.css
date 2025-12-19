@@ -300,6 +300,23 @@ h2 {
     text-decoration: underline;
 }
 
+.project-media {
+    margin: 1rem 0;
+    position: relative;
+    padding-top: 56.25%; /* 16:9 */
+}
+
+.project-media iframe,
+.project-media video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+
 /* Section Compétences */
 #skills {
     padding: 50px 20px;
