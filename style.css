@@ -345,15 +345,14 @@ h2 {
     margin-top: 0.5rem;
 }
 
-.project-description {
-    max-height: 4.5em; /* environ 3 lignes */
+.project-content {
+    max-height: 180px; /* hauteur initiale visible */
     overflow: hidden;
-    position: relative;
     transition: max-height 0.5s ease;
 }
 
-.project-description.expanded {
-    max-height: 1000px; /* laisse le texte se déployer */
+.project-content.expanded {
+    max-height: 2000px; /* laisse tout le bloc se déployer */
 }
 
 .read-more-btn {
@@ -372,6 +371,7 @@ h2 {
 .read-more-btn:hover {
     background: #764ba2;
 }
+
 
 
 
