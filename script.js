@@ -69,3 +69,19 @@ window.addEventListener('scroll', () => {
 
     nav.style.opacity = opacity;
 });
+
+
+/* ===========================
+  PROJETS: bouton “Lire la suite” 
+=========================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".read-more-btn");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const description = btn.previousElementSibling;
+            description.classList.toggle("expanded");
+            btn.textContent = description.classList.contains("expanded") ? "Réduire" : "Lire la suite";
+        });
+    });
+});
