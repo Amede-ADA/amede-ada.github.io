@@ -346,14 +346,11 @@ h2 {
 }
 
 .project-content {
-    max-height: 280px; /* hauteur initiale visible */
+    max-height: 350px; /* hauteur initiale visible */
     overflow: hidden;
     transition: max-height 0.5s ease;
 }
 
-.project-content.expanded {
-    max-height: 2000px; /* laisse tout le bloc se déployer */
-}
 
 .read-more-btn {
     display: inline-block;
