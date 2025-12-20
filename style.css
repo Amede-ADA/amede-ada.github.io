@@ -921,6 +921,377 @@ h2 {
     color: white;
 }
 
+
+/*Section ASSOCIATIONS */
+/* Section Associations et Volontariat */
+#associations {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+#associations h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.associations-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Bloc Association */
+.association-block {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.association-block:hover {
+    box-shadow: 0 15px 50px rgba(102, 126, 234, 0.15);
+}
+
+/* Header de l'association */
+.association-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.association-name {
+    font-size: 2rem;
+    color: #667eea;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.association-name::before {
+    content: '🏢';
+    font-size: 2.2rem;
+}
+
+.association-type {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Timeline des postes */
+.positions-timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+/* Ligne verticale de la timeline */
+.positions-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    bottom: 20px;
+    width: 3px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Item de poste */
+.position-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+}
+
+.position-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Marqueur de timeline */
+.position-marker {
+    position: absolute;
+    left: -30px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 4px solid #667eea;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.position-item:hover .position-marker {
+    width: 20px;
+    height: 20px;
+    left: -32px;
+    border-width: 5px;
+    box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.3);
+}
+
+/* Contenu du poste */
+.position-content {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.position-content:hover {
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Header du poste */
+.position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.position-title {
+    font-size: 1.4rem;
+    color: #2d3748;
+    margin: 0;
+    font-weight: 600;
+}
+
+.position-period {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    white-space: nowrap;
+}
+
+/* Image du poste */
+.position-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
+
+.position-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.position-image:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay de l'image */
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    padding: 15px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.position-image:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-overlay span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Détails du poste */
+.position-details {
+    margin-top: 20px;
+}
+
+.position-details h5 {
+    color: #2d3748;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Liste des tâches */
+.tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.tasks-list li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.tasks-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+    border-left-width: 6px;
+}
+
+.task-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-content strong {
+    display: block;
+    color: #2d3748;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.task-content p {
+    color: #4a5568;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Compétences acquises */
+.skills-acquired {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.skills-acquired h5 {
+    color: #2d3748;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .association-block {
+        padding: 25px 20px;
+    }
+
+    .positions-timeline {
+        padding-left: 30px;
+    }
+
+    .positions-timeline::before {
+        left: 10px;
+    }
+
+    .position-marker {
+        left: -25px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .position-item:hover .position-marker {
+        width: 14px;
+        height: 14px;
+        left: -26px;
+    }
+
+    .position-content {
+        padding: 20px 15px;
+    }
+
+    .association-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .association-name {
+        font-size: 1.5rem;
+    }
+
+    .position-image {
+        height: 200px;
+    }
+
+    .tasks-list li {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .task-icon {
+        font-size: 1.5rem;
+    }
+}
+
+
+
 /* Section Langues */
 .languages-list {
     display: flex;
