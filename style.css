@@ -335,6 +335,63 @@ h2 {
     margin-bottom: 0.8rem;
 }
 
+/* Styles pour les listes dans tech-content */
+.tech-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-content ul li {
+    position: relative;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #667eea;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    line-height: 1.6;
+}
+
+.tech-content ul li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    border-color: #764ba2;
+}
+
+/* Icône avant chaque élément */
+.tech-content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+/* Variante avec numéros (si vous voulez numéroter) */
+.tech-content ul.numbered {
+    counter-reset: list-counter;
+}
+
+.tech-content ul.numbered li::before {
+    content: counter(list-counter);
+    counter-increment: list-counter;
+    font-size: 0.75rem;
+}
+
 .project-links {
     margin-top: 1rem;
     display: flex;
