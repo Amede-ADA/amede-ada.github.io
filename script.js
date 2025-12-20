@@ -79,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
-            const description = btn.previousElementSibling;
-            description.classList.toggle("expanded");
-            btn.textContent = description.classList.contains("expanded") ? "Réduire" : "Lire la suite";
+            const content = btn.previousElementSibling; // c'est le .project-content
+            content.classList.toggle("expanded");
+            btn.textContent = content.classList.contains("expanded") ? "Réduire" : "Lire la suite";
         });
     });
 });
