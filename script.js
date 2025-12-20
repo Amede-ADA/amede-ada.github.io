@@ -75,22 +75,26 @@ window.addEventListener('scroll', () => {
   PROJETS: bouton “Lire la suite” 
 =========================== */
 document.addEventListener("DOMContentLoaded", () => {
-
-    // ===== Bouton "Lire la suite" =====
     const readMoreBtns = document.querySelectorAll(".read-more-btn");
 
     readMoreBtns.forEach(btn => {
         const projectCard = btn.closest('.project-card');
-        const content = projectCard.querySelector('.project-content'); // ciblage fiable
+        const content = projectCard.querySelector('.project-content');
+
+        // Récupérer la hauteur initiale visible (hauteur tronquée)
+        const initialHeight = 350; // correspond à ton CSS
+
+        // Définir la hauteur initiale
+        content.style.maxHeight = initialHeight + "px";
 
         btn.addEventListener('click', () => {
             if (content.classList.contains('expanded')) {
-                // Replier
-                content.style.maxHeight = "350px"; // hauteur initiale
+                // Replier : revenir à la hauteur initiale
+                content.style.maxHeight = initialHeight + "px";
                 content.classList.remove('expanded');
                 btn.textContent = "Lire la suite";
             } else {
-                // Dérouler complètement
+                // Dérouler : utiliser la hauteur réelle du contenu
                 content.style.maxHeight = content.scrollHeight + "px";
                 content.classList.add('expanded');
                 btn.textContent = "Réduire";
@@ -98,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ===== Tech-tag accordéon =====
+    // Accordéon pour les tech-tags
     const techButtons = document.querySelectorAll(".tech-tag-btn");
 
     techButtons.forEach(btn => {
@@ -106,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const content = btn.nextElementSibling;
             content.classList.toggle("show");
 
-            // Ajuster la hauteur pour transition fluide
             if(content.classList.contains("show")){
                 content.style.maxHeight = content.scrollHeight + "px";
             } else {
@@ -114,5 +117,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
 });
