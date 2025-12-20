@@ -95,3 +95,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+/* ===========================
+  Tech-tag devient un accordéon: pour decrire les élément de projets” 
+=========================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const techButtons = document.querySelectorAll(".tech-tag-btn");
+
+    techButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const content = btn.nextElementSibling;
+            content.classList.toggle("show");
+        });
+    });
+});
