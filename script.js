@@ -80,16 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
     buttons.forEach(btn => {
         const content = btn.previousElementSibling;
 
-        // stocke la hauteur réelle du contenu
-        const fullHeight = content.scrollHeight;
-
         btn.addEventListener("click", () => {
             if(content.classList.contains("expanded")) {
-                content.style.maxHeight = "120px"; // hauteur tronquée
+                // replier le contenu
+                content.style.maxHeight = "120px"; // hauteur initiale visible
                 content.classList.remove("expanded");
                 btn.textContent = "Lire la suite";
             } else {
-                content.style.maxHeight = fullHeight + "px"; // hauteur complète
+                // dérouler complètement
+                content.style.maxHeight = null; // enlève la limite
                 content.classList.add("expanded");
                 btn.textContent = "Réduire";
             }
