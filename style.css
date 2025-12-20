@@ -1291,6 +1291,341 @@ h2 {
 }
 
 
+/*Section Distinctions*/
+/* Section Distinctions et Reconnaissances */
+#distinctions {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet de confettis en arrière-plan */
+#distinctions::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle, #ffd700 2px, transparent 2px),
+        radial-gradient(circle, #ff6b6b 2px, transparent 2px),
+        radial-gradient(circle, #4ecdc4 2px, transparent 2px);
+    background-size: 100px 100px, 150px 150px, 120px 120px;
+    background-position: 0 0, 40px 60px, 80px 30px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+#distinctions h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+}
+
+.distinctions-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Carte de distinction */
+.distinction-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.distinction-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+}
+
+/* Ruban de distinction */
+.distinction-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    padding: 12px 25px 12px 20px;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    z-index: 10;
+    clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%);
+}
+
+.ribbon-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Contenu de la distinction */
+.distinction-content {
+    padding: 40px;
+}
+
+.distinction-title {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+    padding-right: 80px; /* Pour éviter le ruban */
+}
+
+/* Méta-informations */
+.distinction-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border-left: 4px solid #ffd700;
+}
+
+.meta-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.meta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.meta-label {
+    font-size: 0.8rem;
+    color: #718096;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.meta-value {
+    font-size: 1rem;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+/* Image de la distinction */
+.distinction-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 25px 0;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.distinction-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.distinction-card:hover .distinction-image img {
+    transform: scale(1.08);
+}
+
+/* Badge sur l'image */
+.image-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #2d3748;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Détails de la distinction */
+.distinction-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.detail-block {
+    padding: 25px;
+    border-radius: 16px;
+    position: relative;
+}
+
+.detail-block.context {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left: 5px solid #2196f3;
+}
+
+.detail-block.accomplishment {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-left: 5px solid #ff9800;
+}
+
+.detail-block h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.detail-icon {
+    font-size: 1.5rem;
+}
+
+.detail-block p {
+    color: #4a5568;
+    line-height: 1.8;
+    margin: 0;
+    text-align: justify;
+}
+
+/* Statistiques d'impact */
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed rgba(0,0,0,0.1);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ff9800;
+    margin-bottom: 5px;
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Animation d'apparition */
+.distinction-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.distinction-card:nth-child(1) { animation-delay: 0.1s; }
+.distinction-card:nth-child(2) { animation-delay: 0.2s; }
+.distinction-card:nth-child(3) { animation-delay: 0.3s; }
+.distinction-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .distinction-content {
+        padding: 25px 20px;
+    }
+
+    .distinction-title {
+        font-size: 1.4rem;
+        padding-right: 70px;
+    }
+
+    .distinction-ribbon {
+        top: 15px;
+        right: -8px;
+        padding: 10px 20px 10px 15px;
+    }
+
+    .ribbon-icon {
+        font-size: 1.5rem;
+    }
+
+    .distinction-image {
+        height: 220px;
+    }
+
+    .meta-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .detail-block {
+        padding: 20px 15px;
+    }
+
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
+
 
 /* Section Langues */
 .languages-list {
