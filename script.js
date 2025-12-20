@@ -75,37 +75,44 @@ window.addEventListener('scroll', () => {
   PROJETS: bouton “Lire la suite” 
 =========================== */
 document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll(".read-more-btn");
 
-    buttons.forEach(btn => {
-        const content = btn.previousElementSibling;
+    // ===== Bouton "Lire la suite" =====
+    const readMoreBtns = document.querySelectorAll(".read-more-btn");
 
-        btn.addEventListener("click", () => {
-            if(content.classList.contains("expanded")) {
-                // replier le contenu
-                content.style.maxHeight = "120px"; // hauteur initiale visible
-                content.classList.remove("expanded");
+    readMoreBtns.forEach(btn => {
+        const projectCard = btn.closest('.project-card');
+        const content = projectCard.querySelector('.project-content'); // ciblage fiable
+
+        btn.addEventListener('click', () => {
+            if (content.classList.contains('expanded')) {
+                // Replier
+                content.style.maxHeight = "350px"; // hauteur initiale
+                content.classList.remove('expanded');
                 btn.textContent = "Lire la suite";
             } else {
-                // dérouler complètement
-                content.style.maxHeight = null; // enlève la limite
-                content.classList.add("expanded");
+                // Dérouler complètement
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.add('expanded');
                 btn.textContent = "Réduire";
             }
         });
     });
-});
 
-/* ===========================
-  Tech-tag devient un accordéon: pour decrire les élément de projets” 
-=========================== */
-document.addEventListener("DOMContentLoaded", () => {
+    // ===== Tech-tag accordéon =====
     const techButtons = document.querySelectorAll(".tech-tag-btn");
 
     techButtons.forEach(btn => {
         btn.addEventListener("click", () => {
             const content = btn.nextElementSibling;
             content.classList.toggle("show");
+
+            // Ajuster la hauteur pour transition fluide
+            if(content.classList.contains("show")){
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = "0";
+            }
         });
     });
+
 });
