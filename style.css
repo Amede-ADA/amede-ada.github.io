@@ -284,6 +284,57 @@ h2 {
     color: #2d3748;
 }
 
+.tech-tags-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tech-item {
+    border-radius: 8px;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.tech-tag-btn {
+    background: #667eea;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    transition: background 0.3s ease;
+}
+
+.tech-tag-btn:hover {
+    background: #764ba2;
+}
+
+.tech-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding-top: 0;
+}
+
+.tech-content.show {
+    max-height: 2000px; /* ou null via JS */
+    padding-top: 0.8rem;
+}
+
+.tech-content p,
+.tech-content ul,
+.tech-content .project-image,
+.tech-content .project-links {
+    margin-bottom: 0.8rem;
+}
+
+
 .project-links {
     margin-top: 1rem;
     display: flex;
