@@ -78,10 +78,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".read-more-btn");
 
     buttons.forEach(btn => {
+        const content = btn.previousElementSibling;
+
+        // stocke la hauteur réelle du contenu
+        const fullHeight = content.scrollHeight;
+
         btn.addEventListener("click", () => {
-            const content = btn.previousElementSibling; // c'est le .project-content
-            content.classList.toggle("expanded");
-            btn.textContent = content.classList.contains("expanded") ? "Réduire" : "Lire la suite";
+            if(content.classList.contains("expanded")) {
+                content.style.maxHeight = "120px"; // hauteur tronquée
+                content.classList.remove("expanded");
+                btn.textContent = "Lire la suite";
+            } else {
+                content.style.maxHeight = fullHeight + "px"; // hauteur complète
+                content.classList.add("expanded");
+                btn.textContent = "Réduire";
+            }
         });
     });
 });
