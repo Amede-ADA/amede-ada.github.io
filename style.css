@@ -65,7 +65,7 @@ nav a {
     transition: all 0.4s ease;
     border-left: 4px solid transparent;
     background: linear-gradient(90deg, transparent 0%, rgba(102, 126, 234, 0.1) 100%);
-}
+} 
 
 /* Motif de fond au survol */
 nav a::before {
@@ -787,12 +787,9 @@ h2 {
 }
 
 /* Gradient de bordure différent pour chaque carte */
-.cert-item:nth-child(1) { border-top-color: #667eea; }
-.cert-item:nth-child(2) { border-top-color: #764ba2; }
-.cert-item:nth-child(3) { border-top-color: #f093fb; }
-.cert-item:nth-child(4) { border-top-color: #4facfe; }
-.cert-item:nth-child(5) { border-top-color: #43e97b; }
-.cert-item:nth-child(6) { border-top-color: #fa709a; }
+.cert-item:nth-child(odd) { border-top-color: #667eea; }
+.cert-item:nth-child(even) { border-top-color: #764ba2; }
+
 
 .cert-item::before {
     content: '';
@@ -812,7 +809,6 @@ h2 {
 
 .cert-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 16px 40px rgba(102, 126, 234, 0.2);
 }
 
 .cert-item h3 {
@@ -926,7 +922,7 @@ h2 {
 /* Section Associations et Volontariat */
 #associations {
     padding: 60px 20px;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #fafbfc 0%, #f1f3f5 100%);
 }
 
 #associations h2 {
@@ -988,7 +984,6 @@ h2 {
 }
 
 .association-name::before {
-    content: '🏢';
     font-size: 2.2rem;
 }
 
@@ -1143,13 +1138,20 @@ h2 {
 /* Détails du poste */
 .position-details {
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .position-details h5 {
-    color: #2d3748;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
 /* Liste des tâches */
@@ -1199,42 +1201,6 @@ h2 {
     margin: 0;
     line-height: 1.6;
     font-size: 0.95rem;
-}
-
-/* Compétences acquises */
-.skills-acquired {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 2px dashed #e2e8f0;
-}
-
-.skills-acquired h5 {
-    color: #2d3748;
-    font-size: 1rem;
-    margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill-tag {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.skill-tag:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
 }
 
 /* Responsive */
@@ -1295,7 +1261,7 @@ h2 {
 /* Section Distinctions et Reconnaissances */
 #distinctions {
     padding: 60px 20px;
-    background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+    background: linear-gradient(135deg, #fffefa 0%, #fffbf0 100%);
     position: relative;
     overflow: hidden;
 }
