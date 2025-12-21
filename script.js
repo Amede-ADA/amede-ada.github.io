@@ -123,3 +123,36 @@ window.addEventListener('scroll', () => {
     
     nav.style.opacity = opacity;
 });
+
+
+/* ===========================
+       BOUTON RETOUR EN HAUT
+    =========================== */
+    // Créer le bouton s'il n'existe pas déjà dans le HTML
+    let backToTopBtn = document.getElementById('backToTop');
+    
+    if (!backToTopBtn) {
+        backToTopBtn = document.createElement('button');
+        backToTopBtn.id = 'backToTop';
+        backToTopBtn.setAttribute('aria-label', 'Retour en haut');
+        backToTopBtn.title = 'Retour en haut';
+        document.body.appendChild(backToTopBtn);
+    }
+
+    // Afficher/masquer le bouton selon le scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    // Remonter en haut au clic
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
