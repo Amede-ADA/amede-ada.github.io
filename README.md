@@ -50,6 +50,31 @@ Pour `section__body`, choisir la disposition :
 - `data-collapsible` : ajoute « Lire la suite » si le texte est long. Pour changer la hauteur visible : `data-collapsible="24rem"`.
 - `card card--full` : la carte prend toute la largeur de la grille.
 
+## Expérience professionnelle
+
+```html
+<article class="card">
+    <div class="card__head">
+        <img class="card__logo" src="assets/images/logos/entreprise.png" alt=""> <!-- facultatif -->
+        <div class="card__heading">
+            <h3 class="card__title">Intitulé du poste</h3>
+            <p class="card__meta">Entreprise, ville, pays</p>
+        </div>
+        <span class="period">Mars 2025 – août 2025</span>
+    </div>
+    <div class="card__body" data-collapsible>
+        <p>Contexte…</p>
+        <ul class="checklist"><li>Réalisation</li></ul>
+        <ul class="tags"><li>Outil</li></ul>
+    </div>
+</article>
+```
+
+## Page d'ouverture
+
+- Les chiffres clés sont dans `<ul class="hero__facts">` : un `<li>` avec un `<strong>` (le chiffre) et un `<span>` (l'explication). Garder 3 ou 4 éléments.
+- Boutons : `btn btn--accent` (ambré, action principale) ou `btn btn--outline`.
+
 ## Images et vidéos
 
 | Code | Effet |
