@@ -6,6 +6,7 @@
    du contenu.
 
    data-header          En-tête : se masque en descendant, réapparaît en remontant
+   data-hero            Page d'ouverture : l'en-tête prend ses couleurs au-dessus
    data-nav-toggle      Bouton qui ouvre le menu sur mobile
    data-theme-toggle    Bouton clair / sombre (le choix est mémorisé)
    data-collapsible     Bloc replié avec un bouton « Lire la suite »
@@ -17,8 +18,9 @@
    .media img           Toute image dans un .media s'agrandit au clic
                         (ajouter data-no-zoom sur l'image pour l'éviter)
 
-   Le lien actif du menu est mis en évidence automatiquement
-   selon la section affichée.
+   Automatique, sans attribut :
+   - le lien du menu correspondant à la section affichée est mis en évidence ;
+   - le rail à gauche du titre de chaque .section se remplit pendant la lecture.
    ========================================================= */
 
 const CONFIG = {
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initScrollEffects();
     initActiveNav();
+    initSectionProgress();
     initCollapsibles();
     initLightbox();
     initReveal();
@@ -116,6 +119,7 @@ function initMobileNav() {
 function initScrollEffects() {
     const header = document.querySelector('[data-header]');
     const backToTop = document.querySelector('[data-back-to-top]');
+    const hero = document.querySelector('[data-hero]');
     let lastY = window.scrollY;
     let ticking = false;
 
@@ -125,6 +129,10 @@ function initScrollEffects() {
 
         if (header) {
             header.classList.toggle('is-scrolled', y > 8);
+
+            // Tant que l'en-tête survole le hero, il en reprend les couleurs
+            const overHero = hero && y < hero.offsetHeight - header.offsetHeight;
+            header.classList.toggle('is-over-hero', Boolean(overHero));
 
             // On ignore les micro-mouvements pour éviter les clignotements
             if (Math.abs(delta) > 4) {
@@ -178,6 +186,44 @@ function initActiveNav() {
     }, { rootMargin: '-40% 0px -55% 0px' });
 
     sections.forEach((_, section) => observer.observe(section));
+}
+
+
+/* ---------------------------------------------------------
+   Progression de lecture de chaque section
+   Donne à chaque .section une variable --progress entre 0 et 1,
+   utilisée par le CSS pour remplir le rail à côté du titre.
+--------------------------------------------------------- */
+function initSectionProgress() {
+    const sections = [...document.querySelectorAll('.section')];
+    if (!sections.length) return;
+
+    let ticking = false;
+
+    const update = () => {
+        const viewport = window.innerHeight;
+        const start = 100; // la progression démarre quand le haut de la section atteint ~100 px
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const distance = Math.max(rect.height - viewport * 0.5, 1);
+            const progress = Math.min(Math.max((start - rect.top) / distance, 0), 1);
+            section.style.setProperty('--progress', progress.toFixed(3));
+        });
+
+        ticking = false;
+    };
+
+    const request = () => {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    };
+
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    update();
 }
 
 
