@@ -29,13 +29,14 @@
          Pour ajouter une section au menu : ajouter un <li>
          dont le href correspond à l'id de la section.
          ===================================================== -->
-    <header class="site-header" data-header>
+    <header class="site-header is-over-hero" data-header>
         <div class="site-header__inner container">
             <a class="site-header__brand" href="#top">ADA</a>
 
             <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
                 <ul class="site-nav__list">
                     <li><a href="#about">À propos</a></li>
+                    <li><a href="#experiences">Expériences</a></li>
                     <li><a href="#projects">Projets</a></li>
                     <li><a href="#skills">Compétences</a></li>
                     <li><a href="#certifications">Formations</a></li>
@@ -65,33 +66,52 @@
     <main>
 
         <!-- =====================================================
-             HERO
+             HERO (page d'ouverture)
              ===================================================== -->
-        <section class="hero container" id="top">
-            <h1 class="hero__title">ADA Ouèssè Amédé</h1>
-            <p class="hero__subtitle">
-                Ingénieur double diplôme en systèmes embarqués et énergie,
-                lauréat de la bourse France Excellence Eiffel.
-            </p>
+        <section class="hero" id="top" data-hero>
+            <div class="hero__inner container">
 
-            <!-- Trajectoire du parcours : --x / --y placent chaque étiquette,
-                 --d règle le moment où elle apparaît -->
-            <div class="hero__route" aria-hidden="true">
-                <svg viewBox="0 0 1000 200">
-                    <path class="hero__track" d="M40 150 Q250 138 470 95 T940 30"/>
-                    <path class="hero__path" d="M40 150 Q250 138 470 95 T940 30" pathLength="1"/>
-                    <circle class="hero__dot" cx="40" cy="150" r="7" style="--d: 0.2s"/>
-                    <circle class="hero__dot" cx="470" cy="95" r="7" style="--d: 1.1s"/>
-                    <circle class="hero__dot hero__dot--current" cx="940" cy="30" r="7" style="--d: 2s"/>
-                </svg>
-                <span class="hero__stop" style="--x: 4%; --y: 75%; --tx: -0.5rem; --d: 0.2s">Burkina Faso</span>
-                <span class="hero__stop" style="--x: 47%; --y: 47.5%; --d: 1.1s">Maroc</span>
-                <span class="hero__stop hero__stop--current" style="--x: 94%; --y: 15%; --tx: calc(-100% + 0.5rem); --d: 2s">France</span>
-            </div>
+                <div class="hero__main">
+                    <div>
+                        <h1 class="hero__title">ADA Ouèssè Amédé</h1>
+                        <p class="hero__role">Ingénieur double diplôme, systèmes embarqués et énergie</p>
+                        <p class="hero__lead">
+                            Je conçois des systèmes embarqués au service de l'énergie et de l'aéronautique,
+                            et je m'engage à rendre la science accessible aux jeunes.
+                        </p>
 
-            <div class="btn-group">
-                <a class="btn" href="#contact">Me contacter</a>
-                <a class="btn btn--outline" href="#projects">Voir mes projets</a>
+                        <div class="btn-group">
+                            <a class="btn btn--accent" href="#contact">Me contacter</a>
+                            <a class="btn btn--outline" href="#projects">Voir mes projets</a>
+                            <a class="btn btn--outline" href="#experiences">Mes expériences</a>
+                        </div>
+                    </div>
+
+                    <figure class="hero__photo">
+                        <img src="assets/images/ada.jpg" alt="Portrait de ADA Ouèssè Amédé">
+                    </figure>
+                </div>
+
+                <!-- Chiffres clés : garder 3 ou 4 éléments -->
+                <ul class="hero__facts">
+                    <li>
+                        <strong>Bourse Eiffel</strong>
+                        <span>Environ 400 lauréats sur plus de 10 000 candidats</span>
+                    </li>
+                    <li>
+                        <strong>2 diplômes</strong>
+                        <span>d'ingénieur, en systèmes embarqués et en énergie</span>
+                    </li>
+                    <li>
+                        <strong>100 000+</strong>
+                        <span>visites par trimestre sur SpaceAirMasters</span>
+                    </li>
+                    <li>
+                        <strong>4 000+</strong>
+                        <span>jeunes sensibilisés à l'aérospatial</span>
+                    </li>
+                </ul>
+
             </div>
         </section>
 
@@ -104,11 +124,7 @@
                 <h2>À propos</h2>
             </header>
 
-            <div class="section__body about">
-                <figure class="portrait">
-                    <img src="assets/images/ada.jpg" alt="Portrait de ADA Ouèssè Amédé">
-                </figure>
-
+            <div class="section__body">
                 <div class="prose">
                     <p>
                         Je suis un étudiant ingénieur passionné par les systèmes multiphysiques et les technologies de l'ingénierie. Lauréat de la bourse France Excellence Eiffel, je poursuis actuellement un double diplôme en France en systèmes embarqués et conversion de l'énergie.
@@ -120,6 +136,49 @@
                         Au-delà du cadre académique, je suis activement engagé dans des initiatives de vulgarisation scientifique, ainsi que dans des associations de service communautaire et d'apprentissage de l'anglais. À travers ces engagements, je contribue au partage des connaissances et à l'implication des jeunes. Ces actions me permettent de promouvoir la curiosité scientifique, la responsabilité sociale et l'accès à l'apprentissage, tout en inspirant les jeunes à s'ouvrir aux technologies et aux opportunités internationales.
                     </p>
                 </div>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             EXPÉRIENCES PROFESSIONNELLES
+             Pour ajouter une expérience : copier un <article class="card">.
+             Les plus récentes en premier.
+             ===================================================== -->
+        <section class="section container" id="experiences">
+            <header class="section__head">
+                <h2>Expériences</h2>
+                <p>Stages et missions en entreprise.</p>
+            </header>
+
+            <div class="section__body stack">
+
+                <!-- À compléter : remplacer tout ce qui est entre crochets -->
+                <article class="card">
+                    <div class="card__head">
+                        <!-- Logo facultatif :
+                        <img class="card__logo" src="assets/images/logos/entreprise.png" alt="">
+                        -->
+                        <div class="card__heading">
+                            <h3 class="card__title">Stagiaire ingénieur, contrôle par ultrasons</h3>
+                            <p class="card__meta">[Nom de l'entreprise], [ville, pays]</p>
+                        </div>
+                        <span class="period">[Mois année] – [mois année]</span>
+                    </div>
+
+                    <div class="card__body" data-collapsible>
+                        <p>[Contexte en deux ou trois phrases : l'entreprise, le besoin, ton rôle.]</p>
+                        <ul class="checklist">
+                            <li>[Mission ou réalisation principale]</li>
+                            <li>[Résultat obtenu, chiffré si possible]</li>
+                        </ul>
+                        <ul class="tags">
+                            <li>[Outil ou technologie]</li>
+                            <li>[Compétence]</li>
+                        </ul>
+                    </div>
+                </article>
+
             </div>
         </section>
 
